@@ -6,6 +6,8 @@ project(sevenbot_pkg)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   urdf
+  roscpp
+  std_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -100,7 +102,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES sevenbot_pkg
-#  CATKIN_DEPENDS urdf
+  CATKIN_DEPENDS urdf roscpp std_msgs sensor_msgs
 #  DEPENDS system_lib
 )
 
@@ -127,6 +129,7 @@ include_directories(
 
 ## Declare a C++ executable
 # add_executable(sevenbot_pkg_node src/sevenbot_pkg_node.cpp)
+add_executable(sevenbot_state_publisher src/sevenbot_state_publisher.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
@@ -136,6 +139,7 @@ include_directories(
 # target_link_libraries(sevenbot_pkg_node
 #   ${catkin_LIBRARIES}
 # )
+target_link_libraries(sevenbot_state_publisher ${catkin_LIBRARIES})
 
 #############
 ## Install ##

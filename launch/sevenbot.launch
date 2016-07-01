@@ -1,10 +1,14 @@
 <launch>
   <arg name="model" default="$(find sevenbot_pkg)/urdf/sevenbot.urdf" />
-  <arg name="gui" default="true" />
+  <arg name="gui" default="false" />
   <param name="robot_description" textfile="$(arg model)" />
   <param name="use_gui" value="$(arg gui)"/>
+  <!--
   <node name="joint_state_publisher" pkg="joint_state_publisher"
         type="joint_state_publisher" />
+  -->
+  <node name="sevenbot_state_publisher" pkg="sevenbot_pkg"
+        type="sevenbot_state_publisher" />
   <node name="robot_state_publisher" pkg="robot_state_publisher"
         type="robot_state_publisher" />
   <node name="rviz" pkg="rviz"
