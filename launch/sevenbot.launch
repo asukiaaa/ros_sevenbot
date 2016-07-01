@@ -1,5 +1,5 @@
 <launch>
-  <arg name="model" default="$(find testbot_urdf)/urdf/sevenbot.urdf" />
+  <arg name="model" default="$(find sevenbot_pkg)/urdf/sevenbot.urdf" />
   <arg name="gui" default="true" />
   <param name="robot_description" textfile="$(arg model)" />
   <param name="use_gui" value="$(arg gui)"/>
@@ -9,5 +9,5 @@
         type="robot_state_publisher" />
   <node name="rviz" pkg="rviz"
         type="rviz"
-        args="-d $(find testbot_urdf)/urdf.rviz" required="true" />
+        args="-d $(find sevenbot_pkg)/urdf.rviz" required="true" />
 </launch>

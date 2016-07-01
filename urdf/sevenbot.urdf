@@ -52,6 +52,13 @@
       <material name="silver"/>
     </visual>
   </link>
+  <link name="l2m">
+    <interial>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.1"/>
+      <interia ixx="0.1" ixy="0" ixz="0" iyy="0.1" iyz="0" izz="0.1"/>
+    </interial>
+  </link>
   <link name="l3">
     <inertial>
       <origin rpy="0 0 0" xyz="0.145 0 0"/>
@@ -160,10 +167,25 @@
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
-  <joint name="j3" type="revolute">
+  <joint name="j2m" type="revolute">
     <axis xyz="0 1 0"/>
     <origin rpy="0 0 0" xyz="-0.12 0 0"/>
     <parent link="l2"/>
+    <child link="l2m"/>
+    <limit effort="100" lower="0" upper="1.57" velocity="100.0"/>
+    <mimic joint="j2" multiplier="-1"/>
+  </joint>
+  <transmission name="trans_j2m">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="j2m"/>
+    <actuator name="motor_j2m">
+      <hardwareInterface>EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+  <joint name="j3" type="revolute">
+    <axis xyz="0 1 0"/>
+    <parent link="l2m"/>
     <child link="l3"/>
     <dynamics damping="0.01" friction="0.0"/>
     <limit effort="100" lower="0" upper="3.14" velocity="100.0"/>
