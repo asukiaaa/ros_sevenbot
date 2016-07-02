@@ -1,5 +1,5 @@
 <launch>
-  <arg name="model" default="$(find sevenbot_pkg)/urdf/sevenbot.urdf" />
+  <arg name="model" default="$(find ros_sevenbot)/urdf/sevenbot.urdf" />
   <arg name="gui" default="false" />
   <param name="robot_description" textfile="$(arg model)" />
   <param name="use_gui" value="$(arg gui)"/>
@@ -7,13 +7,13 @@
   <node name="joint_state_publisher" pkg="joint_state_publisher"
         type="joint_state_publisher" />
   -->
-  <node name="sevenbot_pkg_serial_node" pkg="sevenbot_pkg"
+  <node name="ros_sevenbot_serial_node" pkg="ros_sevenbot"
         type="serial_node" />
-  <node name="serial_node_parser" pkg="sevenbot_pkg"
+  <node name="serial_node_parser" pkg="ros_sevenbot"
         type="serial_node_parser.py" />
   <node name="robot_state_publisher" pkg="robot_state_publisher"
         type="robot_state_publisher" />
   <node name="rviz" pkg="rviz"
         type="rviz"
-        args="-d $(find sevenbot_pkg)/urdf.rviz" required="true" />
+        args="-d $(find ros_sevenbot)/urdf.rviz" required="true" />
 </launch>

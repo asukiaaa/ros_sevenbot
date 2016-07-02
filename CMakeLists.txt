@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(sevenbot_pkg)
+project(ros_sevenbot)
 
 find_package(catkin REQUIRED COMPONENTS
   urdf
