@@ -8,19 +8,19 @@ from std_msgs.msg import String
 from sensor_msgs.msg import JointState
 import math
 
-class SerialNodeStateMonitor:
+class SerialNodeParser:
   degrees = []
   radians = []
 
   def __init__(self):
-    rospy.init_node('serial_node_state_monitor');
+    rospy.init_node('serial_node_parser');
     self.pub = rospy.Publisher('/joint_states', JointState, queue_size=10)
     self.joint_state = JointState()
     # self.joint_state.name = ['j1', 'j2', 'j3', 'j4', 'j5', 'j6']
     self.joint_state.name = ['j1', 'j2', 'j2m', 'j3', 'j4', 'j5', 'j6']
 
   def start_subscribe(self):
-    rospy.Subscriber("/sevenbot_arduino_master", String, self.callback)
+    rospy.Subscriber("/serial_publisher", String, self.callback)
 
   def callback(self, input_str):
     # remove first info because it is angle_type
@@ -40,6 +40,6 @@ class SerialNodeStateMonitor:
       rate.sleep()
 
 if __name__ == '__main__':
-  node_monitor = SerialNodeStateMonitor()
-  node_monitor.start_subscribe()
-  node_monitor.start_publish()
+  node_parser = SerialNodeParser()
+  node_parser.start_subscribe()
+  node_parser.start_publish()

@@ -9,12 +9,8 @@
   -->
   <node name="sevenbot_pkg_serial_node" pkg="sevenbot_pkg"
         type="serial_node" />
-  <!--
-  <node name="serial_node_state_publisher" pkg="sevenbot_pkg"
-        type="serial_node_state_publisher" />
-  <node name="sevenbot_state_publisher" pkg="sevenbot_pkg"
-        type="sevenbot_state_publisher" />
-  -->
+  <node name="serial_node_parser" pkg="sevenbot_pkg"
+        type="serial_node_parser.py" />
   <node name="robot_state_publisher" pkg="robot_state_publisher"
         type="robot_state_publisher" />
   <node name="rviz" pkg="rviz"

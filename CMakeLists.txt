@@ -27,9 +27,6 @@ include_directories(
 add_executable(sevenbot_state_publisher src/sevenbot_state_publisher.cpp)
 target_link_libraries(sevenbot_state_publisher ${catkin_LIBRARIES})
 
-add_executable(serial_node_state_publisher src/serial_node_state_publisher.cpp)
-target_link_libraries(serial_node_state_publisher ${catkin_LIBRARIES})
-
 add_executable(${PROJECT_NAME}_serial_node src/serial_node.cpp)
 target_link_libraries(${PROJECT_NAME}_serial_node ${catkin_LIBRARIES})
 set_target_properties(${PROJECT_NAME}_serial_node PROPERTIES OUTPUT_NAME serial_node PREFIX "")
