@@ -8,7 +8,7 @@
 double degree_to_radian(double degree);
 
 int main(int argc, char** argv) {
-  ros::init(argc, argv, "initial_state_publisher");
+  ros::init(argc, argv, "sevenbot_state_publisher");
   ros::NodeHandle node;
   ros::Publisher joint_pub = node.advertise<sensor_msgs::JointState>("/joint_states", 10);
   ros::Rate rate(1); // 1Hz

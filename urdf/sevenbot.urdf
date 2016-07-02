@@ -152,8 +152,8 @@
     </actuator>
   </transmission>
   <joint name="j2" type="revolute">
-    <axis xyz="0 1 0"/>
-    <origin rpy="0 0 0" xyz="0.03 0 0.075"/>
+    <axis xyz="0 -1 0"/>
+    <origin rpy="0 2 0" xyz="0.03 0 0.075"/>
     <parent link="l1"/>
     <child link="l2"/>
     <dynamics damping="0.01" friction="-1.0"/>
@@ -168,7 +168,7 @@
     </actuator>
   </transmission>
   <joint name="j2m" type="revolute">
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
     <origin rpy="0 0 0" xyz="-0.12 0 0"/>
     <parent link="l2"/>
     <child link="l2m"/>
@@ -185,6 +185,7 @@
   </transmission>
   <joint name="j3" type="revolute">
     <axis xyz="0 1 0"/>
+    <origin rpy="0 -1 0" xyz="0 0 0"/>
     <parent link="l2m"/>
     <child link="l3"/>
     <dynamics damping="0.01" friction="0.0"/>
