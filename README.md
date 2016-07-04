@@ -2,7 +2,11 @@
 
 A package to control sevenbot from ROS.
 
-ROS: http://wiki.ros.org/
+- ROS: http://wiki.ros.org/
+- SevenBot: http://7bot.cc/
+
+# Demo movie
+https://www.youtube.com/watch?v=U9kZBxp1-Tg
 
 # Setup
 
